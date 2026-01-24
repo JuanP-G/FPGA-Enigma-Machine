@@ -95,7 +95,7 @@ Este proyecto fue diseñado, codificado y documentado por estudiantes de **Ingen
 
 <div align="center">
 
-| **Juan Pastrana García** | **Omar Ouahri Vigil** |
+| [**Juan Pastrana García**](https://github.com/GustoffotsuG) | [**Omar Ouahri Vigil**](https://github.com/theomaaroo) |
 | :---: | :---: |
 | Diseño Datapath & RTL | Lógica de Control & FSM |
 
