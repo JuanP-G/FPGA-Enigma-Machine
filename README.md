@@ -6,7 +6,6 @@
 ![Badge VHDL](https://img.shields.io/badge/Language-VHDL-blue)
 ![Badge FPGA](https://img.shields.io/badge/Hardware-Basys3-red)
 ![Badge Tool](https://img.shields.io/badge/Tool-Vivado-green)
-![Badge License](https://img.shields.io/badge/License-MIT-orange)
 
 <br>
 
