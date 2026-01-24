@@ -12,7 +12,7 @@
 
 **Una reconstrucción digital de la criptografía electromecánica de la Segunda Guerra Mundial.** No es una simulación por software: es hardware dedicado configurado para emular rotores, reflectores y lógica de cifrado.
 
-[Explorar RTL](#-arquitectura-hardware) • [Manual de Uso](#-manual-de-operación) • [Ver Autores](#-créditos)
+[Explorar RTL](#arquitectura) • [Manual de Uso](#manual) • [Ver Autores](#creditos)
 
 <img src="assets/concept_datapath.png" alt="Concepto Datapath" width="80%">
 <br>
