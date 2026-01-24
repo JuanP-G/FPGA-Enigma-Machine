@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Vivado v2023.1 (64-bit)
+# SW Build 3865809 on Sun May  7 15:04:56 MDT 2023
+# IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
+# SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
+# Start of session at: Sat Jan 24 13:32:18 2026
+# Process ID: 60854
+# Current directory: /home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.runs/impl_1
+# Command line: vivado -log sintesis_enigma.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source sintesis_enigma.tcl -notrace
+# Log file: /home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.runs/impl_1/sintesis_enigma.vdi
+# Journal file: /home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.runs/impl_1/vivado.jou
+# Running On: dell-omar, OS: Linux, CPU Frequency: 1741.766 MHz, CPU Physical cores: 4, Host memory: 33364 MB
+#-----------------------------------------------------------
+source sintesis_enigma.tcl -notrace

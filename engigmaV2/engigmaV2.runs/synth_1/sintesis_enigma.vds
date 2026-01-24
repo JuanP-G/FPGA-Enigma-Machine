@@ -1,0 +1,384 @@
+#-----------------------------------------------------------
+# Vivado v2023.1 (64-bit)
+# SW Build 3865809 on Sun May  7 15:04:56 MDT 2023
+# IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
+# SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
+# Start of session at: Sat Jan 24 13:37:09 2026
+# Process ID: 70046
+# Current directory: /home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.runs/synth_1
+# Command line: vivado -log sintesis_enigma.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source sintesis_enigma.tcl
+# Log file: /home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.runs/synth_1/sintesis_enigma.vds
+# Journal file: /home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.runs/synth_1/vivado.jou
+# Running On: dell-omar, OS: Linux, CPU Frequency: 400.000 MHz, CPU Physical cores: 4, Host memory: 33364 MB
+#-----------------------------------------------------------
+source sintesis_enigma.tcl -notrace
+Command: read_checkpoint -auto_incremental -incremental /home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/utils_1/imports/synth_1/sintesis_enigma.dcp
+INFO: [Vivado 12-5825] Read reference checkpoint from /home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/utils_1/imports/synth_1/sintesis_enigma.dcp for incremental synthesis
+INFO: [Vivado 12-7989] Please ensure there are no constraint changes
+Command: synth_design -top sintesis_enigma -part xc7a35tcpg236-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Device 21-403] Loading part xc7a35tcpg236-1
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 70080
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1987.500 ; gain = 379.668 ; free physical = 23862 ; free virtual = 31032
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'sintesis_enigma' [/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/new/sintesis_enigma.vhd:19]
+INFO: [Synth 8-3491] module 'debouncer' declared at '/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/imports/Descargas/debouncer.vhd:5' bound to instance 'inst_debouncer' of component 'debouncer' [/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/new/sintesis_enigma.vhd:102]
+INFO: [Synth 8-638] synthesizing module 'debouncer' [/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/imports/Descargas/debouncer.vhd:16]
+INFO: [Synth 8-256] done synthesizing module 'debouncer' (0#1) [/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/imports/Descargas/debouncer.vhd:16]
+INFO: [Synth 8-3491] module 'unidad_control' declared at '/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/new/unidad_control.vhd:5' bound to instance 'inst_UC' of component 'unidad_control' [/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/new/sintesis_enigma.vhd:112]
+INFO: [Synth 8-638] synthesizing module 'unidad_control' [/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/new/unidad_control.vhd:23]
+WARNING: [Synth 8-614] signal 'salida_rotor1' is read in the process but is not in the sensitivity list [/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/new/unidad_control.vhd:53]
+WARNING: [Synth 8-614] signal 'modo_descifrar' is read in the process but is not in the sensitivity list [/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/new/unidad_control.vhd:99]
+WARNING: [Synth 8-614] signal 'seleccion_rotor' is read in the process but is not in the sensitivity list [/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/new/unidad_control.vhd:99]
+WARNING: [Synth 8-614] signal 'controlMuxIndice' is read in the process but is not in the sensitivity list [/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/new/unidad_control.vhd:99]
+WARNING: [Synth 8-614] signal 'controlMuxNvuelta' is read in the process but is not in the sensitivity list [/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/new/unidad_control.vhd:99]
+WARNING: [Synth 8-614] signal 'controlMuxA' is read in the process but is not in the sensitivity list [/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/new/unidad_control.vhd:99]
+WARNING: [Synth 8-614] signal 'controlMuxB' is read in the process but is not in the sensitivity list [/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/new/unidad_control.vhd:99]
+WARNING: [Synth 8-614] signal 'controlMuxROM' is read in the process but is not in the sensitivity list [/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/new/unidad_control.vhd:99]
+WARNING: [Synth 8-614] signal 'controlMuxROMi' is read in the process but is not in the sensitivity list [/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/new/unidad_control.vhd:99]
+WARNING: [Synth 8-614] signal 'controlMuxLSalida' is read in the process but is not in the sensitivity list [/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/new/unidad_control.vhd:99]
+WARNING: [Synth 8-614] signal 'controlMuxDig0' is read in the process but is not in the sensitivity list [/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/new/unidad_control.vhd:99]
+WARNING: [Synth 8-614] signal 'controlMuxDig1' is read in the process but is not in the sensitivity list [/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/new/unidad_control.vhd:99]
+WARNING: [Synth 8-614] signal 'opSumRest' is read in the process but is not in the sensitivity list [/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/new/unidad_control.vhd:99]
+INFO: [Synth 8-256] done synthesizing module 'unidad_control' (0#1) [/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/new/unidad_control.vhd:23]
+	Parameter N bound to: 5 - type: integer 
+INFO: [Synth 8-3491] module 'datapath' declared at '/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/new/datapath.vhd:5' bound to instance 'inst_Datapath' of component 'datapath' [/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/new/sintesis_enigma.vhd:125]
+INFO: [Synth 8-638] synthesizing module 'datapath' [/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/new/datapath.vhd:22]
+	Parameter N bound to: 5 - type: integer 
+INFO: [Synth 8-3491] module 'mux' declared at '/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/new/mux.vhd:6' bound to instance 'instMuxA' of component 'mux' [/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/new/datapath.vhd:125]
+INFO: [Synth 8-638] synthesizing module 'mux' [/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/new/mux.vhd:24]
+INFO: [Synth 8-226] default block is never used [/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/new/mux.vhd:32]
+WARNING: [Synth 8-614] signal 'E0' is read in the process but is not in the sensitivity list [/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/new/mux.vhd:30]
+WARNING: [Synth 8-614] signal 'E1' is read in the process but is not in the sensitivity list [/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/new/mux.vhd:30]
+WARNING: [Synth 8-614] signal 'E2' is read in the process but is not in the sensitivity list [/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/new/mux.vhd:30]
+WARNING: [Synth 8-614] signal 'E3' is read in the process but is not in the sensitivity list [/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/new/mux.vhd:30]
+INFO: [Synth 8-256] done synthesizing module 'mux' (0#1) [/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/new/mux.vhd:24]
+INFO: [Synth 8-3491] module 'mux' declared at '/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/new/mux.vhd:6' bound to instance 'instMuxB' of component 'mux' [/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/new/datapath.vhd:134]
+INFO: [Synth 8-3491] module 'sumador_restador' declared at '/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/new/sumador_restador.vhd:6' bound to instance 'instSumRest' of component 'sumador_restador' [/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/new/datapath.vhd:143]
+INFO: [Synth 8-638] synthesizing module 'sumador_restador' [/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/new/sumador_restador.vhd:19]
+INFO: [Synth 8-256] done synthesizing module 'sumador_restador' (0#1) [/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/new/sumador_restador.vhd:19]
+INFO: [Synth 8-3491] module 'mux' declared at '/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/new/mux.vhd:6' bound to instance 'instMuxIndice' of component 'mux' [/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/new/datapath.vhd:153]
+INFO: [Synth 8-3491] module 'mux' declared at '/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/new/mux.vhd:6' bound to instance 'instMuxRom' of component 'mux' [/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/new/datapath.vhd:174]
+INFO: [Synth 8-3491] module 'mux' declared at '/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/new/mux.vhd:6' bound to instance 'instMuxRomi' of component 'mux' [/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/new/datapath.vhd:183]
+INFO: [Synth 8-3491] module 'mux' declared at '/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/new/mux.vhd:6' bound to instance 'instMuxLsalida' of component 'mux' [/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/new/datapath.vhd:193]
+INFO: [Synth 8-3491] module 'mux' declared at '/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/new/mux.vhd:6' bound to instance 'instMuxNvuelta' of component 'mux' [/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/new/datapath.vhd:208]
+INFO: [Synth 8-3491] module 'mux' declared at '/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/new/mux.vhd:6' bound to instance 'instMuxDig0' of component 'mux' [/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/new/datapath.vhd:218]
+INFO: [Synth 8-3491] module 'mux' declared at '/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/new/mux.vhd:6' bound to instance 'instMuxDig1' of component 'mux' [/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/new/datapath.vhd:228]
+INFO: [Synth 8-256] done synthesizing module 'datapath' (0#1) [/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/new/datapath.vhd:22]
+INFO: [Synth 8-3491] module 'displays' declared at '/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/imports/new/displays.vhd:6' bound to instance 'inst_Displays' of component 'displays' [/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/new/sintesis_enigma.vhd:140]
+INFO: [Synth 8-638] synthesizing module 'displays' [/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/imports/new/displays.vhd:19]
+INFO: [Synth 8-3491] module 'conv_7seg_letras' declared at '/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/imports/new/conv_7seg_letras.vhd:4' bound to instance 'conv_digito_0' of component 'conv_7seg_letras' [/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/imports/new/displays.vhd:35]
+INFO: [Synth 8-638] synthesizing module 'conv_7seg_letras' [/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/imports/new/conv_7seg_letras.vhd:9]
+INFO: [Synth 8-256] done synthesizing module 'conv_7seg_letras' (0#1) [/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/imports/new/conv_7seg_letras.vhd:9]
+INFO: [Synth 8-3491] module 'conv_7seg_letras' declared at '/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/imports/new/conv_7seg_letras.vhd:4' bound to instance 'conv_digito_1' of component 'conv_7seg_letras' [/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/imports/new/displays.vhd:36]
+INFO: [Synth 8-3491] module 'conv_7seg_numeros' declared at '/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/imports/new/conv_7seg_numeros.vhd:4' bound to instance 'conv_digito_2' of component 'conv_7seg_numeros' [/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/imports/new/displays.vhd:39]
+INFO: [Synth 8-638] synthesizing module 'conv_7seg_numeros' [/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/imports/new/conv_7seg_numeros.vhd:9]
+INFO: [Synth 8-256] done synthesizing module 'conv_7seg_numeros' (0#1) [/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/imports/new/conv_7seg_numeros.vhd:9]
+INFO: [Synth 8-3491] module 'conv_7seg_numeros' declared at '/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/imports/new/conv_7seg_numeros.vhd:4' bound to instance 'conv_digito_3' of component 'conv_7seg_numeros' [/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/imports/new/displays.vhd:40]
+INFO: [Synth 8-256] done synthesizing module 'displays' (0#1) [/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/imports/new/displays.vhd:19]
+INFO: [Synth 8-256] done synthesizing module 'sintesis_enigma' (0#1) [/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/sources_1/new/sintesis_enigma.vhd:19]
+WARNING: [Synth 8-3917] design sintesis_enigma has port leds[12] driven by constant 0
+WARNING: [Synth 8-3917] design sintesis_enigma has port leds[11] driven by constant 0
+WARNING: [Synth 8-3917] design sintesis_enigma has port leds[10] driven by constant 0
+WARNING: [Synth 8-3917] design sintesis_enigma has port leds[9] driven by constant 0
+WARNING: [Synth 8-3917] design sintesis_enigma has port leds[8] driven by constant 0
+WARNING: [Synth 8-3917] design sintesis_enigma has port leds[7] driven by constant 0
+WARNING: [Synth 8-3917] design sintesis_enigma has port leds[6] driven by constant 0
+WARNING: [Synth 8-3917] design sintesis_enigma has port leds[5] driven by constant 0
+WARNING: [Synth 8-7129] Port x[4] in module conv_7seg_numeros is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw[12] in module sintesis_enigma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw[11] in module sintesis_enigma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw[10] in module sintesis_enigma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw[9] in module sintesis_enigma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw[8] in module sintesis_enigma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw[7] in module sintesis_enigma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw[6] in module sintesis_enigma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw[5] in module sintesis_enigma is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2055.469 ; gain = 447.637 ; free physical = 23783 ; free virtual = 30953
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2070.312 ; gain = 462.480 ; free physical = 23771 ; free virtual = 30941
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2070.312 ; gain = 462.480 ; free physical = 23771 ; free virtual = 30941
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2070.312 ; gain = 0.000 ; free physical = 23771 ; free virtual = 30941
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/constrs_1/imports/new/basys3.xdc]
+Finished Parsing XDC File [/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/constrs_1/imports/new/basys3.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.srcs/constrs_1/imports/new/basys3.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/sintesis_enigma_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/sintesis_enigma_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2207.062 ; gain = 0.000 ; free physical = 23713 ; free virtual = 30883
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2207.062 ; gain = 0.000 ; free physical = 23713 ; free virtual = 30883
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 2207.062 ; gain = 599.230 ; free physical = 23710 ; free virtual = 30880
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a35tcpg236-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 2207.062 ; gain = 599.230 ; free physical = 23710 ; free virtual = 30880
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 2207.062 ; gain = 599.230 ; free physical = 23710 ; free virtual = 30880
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'controller.state_reg' in module 'debouncer'
+INFO: [Synth 8-802] inferred FSM for state register 'q_reg' in module 'unidad_control'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+         waitingpression |                               00 |                               00
+      pressiondebouncing |                               01 |                               01
+       waitingdepression |                               10 |                               10
+    depressiondebouncing |                               11 |                               11
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'controller.state_reg' using encoding 'sequential' in module 'debouncer'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                      s0 |                              000 |                              000
+                      s1 |                              001 |                              001
+                      s2 |                              010 |                              010
+                      s3 |                              011 |                              011
+                    s3_2 |                              100 |                              100
+                      s4 |                              101 |                              101
+                      s5 |                              110 |                              110
+                      s6 |                              111 |                              111
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'q_reg' using encoding 'sequential' in module 'unidad_control'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 2207.062 ; gain = 599.230 ; free physical = 23706 ; free virtual = 30877
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input   32 Bit       Adders := 2     
+	   2 Input   32 Bit       Adders := 2     
++---Registers : 
+	                5 Bit    Registers := 5     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   2 Input   32 Bit        Muxes := 3     
+	   4 Input    7 Bit        Muxes := 1     
+	   4 Input    5 Bit        Muxes := 9     
+	   2 Input    5 Bit        Muxes := 1     
+	   4 Input    4 Bit        Muxes := 1     
+	   8 Input    3 Bit        Muxes := 1     
+	   2 Input    3 Bit        Muxes := 3     
+	   4 Input    2 Bit        Muxes := 1     
+	   2 Input    2 Bit        Muxes := 4     
+	   8 Input    2 Bit        Muxes := 8     
+	   2 Input    1 Bit        Muxes := 1     
+	   4 Input    1 Bit        Muxes := 4     
+	   8 Input    1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 90 (col length:60)
+BRAMs: 100 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-3917] design sintesis_enigma has port leds[12] driven by constant 0
+WARNING: [Synth 8-3917] design sintesis_enigma has port leds[11] driven by constant 0
+WARNING: [Synth 8-3917] design sintesis_enigma has port leds[10] driven by constant 0
+WARNING: [Synth 8-3917] design sintesis_enigma has port leds[9] driven by constant 0
+WARNING: [Synth 8-3917] design sintesis_enigma has port leds[8] driven by constant 0
+WARNING: [Synth 8-3917] design sintesis_enigma has port leds[7] driven by constant 0
+WARNING: [Synth 8-3917] design sintesis_enigma has port leds[6] driven by constant 0
+WARNING: [Synth 8-3917] design sintesis_enigma has port leds[5] driven by constant 0
+WARNING: [Synth 8-7129] Port sw[12] in module sintesis_enigma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw[11] in module sintesis_enigma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw[10] in module sintesis_enigma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw[9] in module sintesis_enigma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw[8] in module sintesis_enigma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw[7] in module sintesis_enigma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw[6] in module sintesis_enigma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw[5] in module sintesis_enigma is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 2207.062 ; gain = 599.230 ; free physical = 23707 ; free virtual = 30881
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+ROM: Preliminary Mapping Report
++-----------------+-----------------------------------------+---------------+----------------+
+|Module Name      | RTL Object                              | Depth x Width | Implemented As | 
++-----------------+-----------------------------------------+---------------+----------------+
+|datapath         | ROM1[0]                                 | 32x5          | LUT            | 
+|datapath         | ROM2[0]                                 | 32x5          | LUT            | 
+|datapath         | ROM3[0]                                 | 32x5          | LUT            | 
+|datapath         | ROM1i[0]                                | 32x5          | LUT            | 
+|datapath         | ROM2i[0]                                | 32x5          | LUT            | 
+|datapath         | ROM3i[0]                                | 32x5          | LUT            | 
+|conv_7seg_letras | display_aux                             | 32x7          | LUT            | 
+|sintesis_enigma  | inst_Datapath/ROM1[0]                   | 32x5          | LUT            | 
+|sintesis_enigma  | inst_Datapath/ROM2[0]                   | 32x5          | LUT            | 
+|sintesis_enigma  | inst_Datapath/ROM3[0]                   | 32x5          | LUT            | 
+|sintesis_enigma  | inst_Datapath/ROM1i[0]                  | 32x5          | LUT            | 
+|sintesis_enigma  | inst_Datapath/ROM2i[0]                  | 32x5          | LUT            | 
+|sintesis_enigma  | inst_Datapath/ROM3i[0]                  | 32x5          | LUT            | 
+|sintesis_enigma  | inst_Displays/conv_digito_0/display_aux | 32x7          | LUT            | 
+|sintesis_enigma  | inst_Displays/conv_digito_1/display_aux | 32x7          | LUT            | 
++-----------------+-----------------------------------------+---------------+----------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 2207.062 ; gain = 599.230 ; free physical = 23688 ; free virtual = 30875
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 2207.062 ; gain = 599.230 ; free physical = 23690 ; free virtual = 30877
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 2207.062 ; gain = 599.230 ; free physical = 23696 ; free virtual = 30883
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 2207.062 ; gain = 599.230 ; free physical = 23681 ; free virtual = 30868
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 2207.062 ; gain = 599.230 ; free physical = 23681 ; free virtual = 30868
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 2207.062 ; gain = 599.230 ; free physical = 23681 ; free virtual = 30868
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 2207.062 ; gain = 599.230 ; free physical = 23681 ; free virtual = 30868
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 2207.062 ; gain = 599.230 ; free physical = 23681 ; free virtual = 30868
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 2207.062 ; gain = 599.230 ; free physical = 23681 ; free virtual = 30868
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     1|
+|2     |CARRY4 |    14|
+|3     |LUT1   |    14|
+|4     |LUT2   |    21|
+|5     |LUT3   |    10|
+|6     |LUT4   |    37|
+|7     |LUT5   |    76|
+|8     |LUT6   |   100|
+|9     |MUXF7  |     4|
+|10    |FDCE   |    17|
+|11    |FDPE   |    10|
+|12    |FDRE   |    45|
+|13    |IBUF   |    11|
+|14    |OBUF   |    27|
++------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 2207.062 ; gain = 599.230 ; free physical = 23681 ; free virtual = 30868
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 17 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:23 ; elapsed = 00:00:23 . Memory (MB): peak = 2207.062 ; gain = 462.480 ; free physical = 23681 ; free virtual = 30868
+Synthesis Optimization Complete : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 2207.062 ; gain = 599.230 ; free physical = 23681 ; free virtual = 30868
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2207.062 ; gain = 0.000 ; free physical = 23964 ; free virtual = 31151
+INFO: [Netlist 29-17] Analyzing 18 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2207.062 ; gain = 0.000 ; free physical = 23964 ; free virtual = 31151
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete | Checksum: c824fcdc
+INFO: [Common 17-83] Releasing license: Synthesis
+62 Infos, 51 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:29 ; elapsed = 00:00:27 . Memory (MB): peak = 2207.062 ; gain = 920.301 ; free physical = 23964 ; free virtual = 31151
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 1961.421; main = 1645.873; forked = 440.799
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3153.934; main = 2207.066; forked = 978.883
+INFO: [Common 17-1381] The checkpoint '/home/omar/UNI/2do/TC/VIVADO/engigmaV2/engigmaV2.runs/synth_1/sintesis_enigma.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file sintesis_enigma_utilization_synth.rpt -pb sintesis_enigma_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Sat Jan 24 13:37:42 2026...
