@@ -100,6 +100,3 @@ Este proyecto fue diseñado, codificado y documentado por estudiantes de **Ingen
 | Diseño Datapath & RTL | Lógica de Control & FSM |
 
 </div>
-
----
-*© 2026 FPGA Enigma Project. Distribuido bajo licencia MIT.*
