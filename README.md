@@ -34,7 +34,7 @@ Este proyecto implementa una **Máquina Enigma** funcional utilizando lógica di
 
 ---
 
-## 🏗️ Arquitectura Hardware
+## <a name="arquitectura"></a>🏗️ Arquitectura Hardware
 
 El diseño se ha sintetizado en una FPGA **Xilinx Artix-7** (Basys 3). A continuación se detallan los bloques críticos generados por Vivado.
 
@@ -57,7 +57,7 @@ Sustituye el cableado físico de los rotores mediante sumas y restas de offsets.
 
 ---
 
-## 🎮 Manual de Operación
+## <a name="manual"></a>🎮 Manual de Operación
 
 ### Mapa de Controles (Basys 3)
 
@@ -89,7 +89,7 @@ Sustituye el cableado físico de los rotores mediante sumas y restas de offsets.
 
 ---
 
-## 👥 Créditos
+## <a name="creditos"></a>👥 Créditos
 
 Este proyecto fue diseñado, codificado y documentado por estudiantes de **Ingeniería de Computadores**:
 
