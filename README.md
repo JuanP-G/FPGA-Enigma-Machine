@@ -70,7 +70,7 @@ A continuación se muestra el mapa de interfaz de la placa. **Es obligatorio rea
 
 | Componente | Función | Detalles |
 | :--- | :--- | :--- |
-| **A. Displays** | Visualización | `[Rotores | Entrada | Salida]` |
+| **A. Displays** | Visualización | **[ Rotores \| Entrada \| Salida ]** |
 | **B. Botones** | Control | `Centro`: Reset Total / `Derecho`: Cifrar Letra |
 | **C. Switches [0-4]** | Entrada Datos | Selección de letra en binario (Ver tabla abajo). |
 | **D. Switches [13-14]** | Config. Rotores | Selección de rodillo/tabla interna. |
@@ -107,6 +107,3 @@ Proyecto desarrollado para la asignatura de **Ingeniería de Computadores**.
 | Diseño Datapath & RTL | Lógica de Control & FSM |
 
 </div>
-
----
-*© 2026 FPGA Enigma Project. Distribuido bajo licencia MIT.*
