@@ -1,64 +1,105 @@
-# MANUAL DE OPERACIÓN: Enigma FPGA (Basys 3)
+<div align="center">
 
-**Versión:** 1.0  
-**Plataforma:** Digilent Basys 3 (Artix-7)  
-**Autores:** Juan Pastrana García & Omar Ouahri Vigil
+# 🔐 FPGA Enigma Machine
+### Implementación Hardware VHDL sobre Artix-7
+
+![Badge VHDL](https://img.shields.io/badge/Language-VHDL-blue)
+![Badge FPGA](https://img.shields.io/badge/Hardware-Basys3-red)
+![Badge Tool](https://img.shields.io/badge/Tool-Vivado-green)
+![Badge License](https://img.shields.io/badge/License-MIT-orange)
+
+<br>
+
+**Una reconstrucción digital de la criptografía electromecánica de la Segunda Guerra Mundial.** No es una simulación por software: es hardware dedicado configurado para emular rotores, reflectores y lógica de cifrado.
+
+[Explorar RTL](#-arquitectura-hardware) • [Manual de Uso](#-manual-de-operación) • [Ver Autores](#-créditos)
+
+<img src="assets/concept_datapath.png" alt="Concepto Datapath" width="80%">
+<br>
+<em>Figura 1: Diseño conceptual original del flujo de datos (Datapath).</em>
+
+</div>
 
 ---
 
-## 1. Mapa de Interfaz Física
-Consulta este mapa antes de operar. La placa se divide en tres zonas funcionales:
+## 📋 Resumen del Proyecto
 
-| Zona | Componentes | Función |
+Este proyecto implementa una **Máquina Enigma** funcional utilizando lógica digital pura. El sistema ha sido diseñado separando estrictamente la ruta de datos (Datapath) de la lógica de control (FSM), permitiendo un cifrado polialfabético en tiempo real.
+
+### Características Principales
+* ⚙️ **Mecánica Virtual:** Simulación del movimiento físico de los rotores (trinquete).
+* 🧮 **Aritmética Modular:** ALU dedicada para operaciones `MOD 26`.
+* 🛡️ **Fiabilidad:** Debouncing hardware de 50ms para pulsadores.
+* 📟 **Visualización:** Salida multiplexada en 7-segmentos.
+
+---
+
+## 🏗️ Arquitectura Hardware
+
+El diseño se ha sintetizado en una FPGA **Xilinx Artix-7** (Basys 3). A continuación se detallan los bloques críticos generados por Vivado.
+
+### 1. Jerarquía Top-Level
+Integra la Unidad de Control, el Datapath y los controladores de periféricos.
+<img src="assets/rtl_top.png" alt="RTL Top Level" width="100%">
+
+### 2. Unidad de Control (El Cerebro)
+Una máquina de estados finitos (Moore) gestiona la secuencia de cifrado.
+* **Estados S2-S3:** Cálculo matemático de la letra.
+* **Estados S4-S6:** Lógica mecánica (decisión de giro de rotores).
+
+<img src="assets/rtl_fsm.png" alt="RTL FSM" width="100%">
+
+### 3. ALU Modular (El Corazón)
+Sustituye el cableado físico de los rotores mediante sumas y restas de offsets.
+> `Salida = (Entrada + Offset_Rotor) mod 26`
+
+<img src="assets/rtl_alu.png" alt="RTL ALU" width="100%">
+
+---
+
+## 🎮 Manual de Operación
+
+### Mapa de Controles (Basys 3)
+
+| Componente | Etiqueta | Función |
 | :--- | :--- | :--- |
-| **Configuración** | Switches 13, 14, 15 | Ajustes de la máquina (Rotores y Modo). |
-| **Datos** | Switches 0-4 | Entrada de la letra a procesar. |
-| **Control** | Botones Centro y Derecho | Reset y Ejecución. |
+| **SW [4:0]** | `Entrada` | Selección de letra en binario (**A**=`00000` ... **Z**=`11001`). |
+| **SW [14:13]** | `Rotor` | Configuración del patrón de cableado interno. |
+| **SW [15]** | `Modo` | ⬇️ **Cifrar** / ⬆️ **Descifrar**. |
+| **BTN Center** | `RESET` | **Obligatorio al inicio.** Reinicia rotores a `00`. |
+| **BTN Right** | `CIFRAR` | Ejecuta el ciclo de cifrado y avanza el mecanismo. |
 
-### [cite_start]Detalle de Switches (Entradas) [cite: 260]
-* **SW[4:0] (Derecha):** Selección de letra en binario (A=0 ... Z=25).
-    * *Ejemplo:* `00000` = A, `00001` = B.
-* **SW[14:13] (Centro-Izq):** Selección de Rodillo (Tabla de sustitución). Cambiar esto altera todo el cifrado.
-* **SW[15] (Izquierda):** Modo de Operación.
-    * ⬇️ **Abajo (0):** Cifrar.
-    * ⬆️ **Arriba (1):** Descifrar.
+### Guía Rápida de Uso
 
-### [cite_start]Detalle de Botones (Acción) [cite: 264]
-* **BTN-C (Centro):** `RESET`. Obligatorio al encender. Pone los contadores a 0.
-* **BTN-R (Derecha):** `CIFRAR`. Ejecuta la transformación y mueve los mecanismos.
-
----
-
-## 2. Guía Paso a Paso
-
-### Paso 1: Inicialización
-1.  Conecta la placa Basys 3 y cárga el bitstream.
-2.  Pulsa **BTN-C (Reset)**.
-3.  Verifica el Display: Debe mostrar `00 00` en los dígitos izquierdos (Rotores en posición inicial).
-
-### Paso 2: Configuración
-1.  Selecciona el **Modo Cifrado** (SW15 abajo).
-2.  Elige una configuración de rotores con SW[14:13] (por ejemplo, ambos abajo para Rotor I).
-
-### Paso 3: Proceso de Cifrado
-1.  Introduce la letra "A" (Todos los SW[4:0] abajo).
-2.  [cite_start]Mira el **Dígito 1** del display: verás la "A" (eco de entrada)[cite: 220].
-3.  Pulsa **BTN-R**.
-4.  [cite_start]Mira el **Dígito 0** del display: verás la letra cifrada resultante[cite: 219].
-5.  Observa los **Dígitos 3-2**: Los contadores han avanzado (el mecanismo ha girado).
-
-### Paso 4: Descifrado (Verificación)
-1.  Anota la letra cifrada y la posición de los rotores.
-2.  Pulsa **RESET** (para volver al estado inicial de rotores).
-3.  Sube **SW15** (Modo Descifrar).
-4.  Pon en SW[4:0] la letra cifrada que obtuviste en el paso 3.
-5.  Pulsa **BTN-R**.
-6.  Resultado: En el display derecho debería aparecer la "A" original.
+1.  **Reset:** Pulsa el botón central. El display debe mostrar `00` en los dígitos de la izquierda.
+2.  **Configura:** Elige modo Cifrar (SW15 abajo) y selecciona una letra con los switches derechos.
+3.  **Ejecuta:** Pulsa el botón derecho.
+4.  **Resultado:**
+    * El **Dígito 0** (derecha) muestra la letra cifrada.
+    * Los **Dígitos 3-2** (izquierda) muestran cómo han girado los rotores.
 
 ---
 
-## 3. Solución de Problemas Frecuentes
+## 🛠️ Tecnologías Utilizadas
 
-* [cite_start]**El display parpadea o se ve tenue:** Es normal, se debe al refresco del multiplexado a alta velocidad[cite: 223].
-* **La salida no cambia al mover los switches:** El sistema es síncrono. Debes pulsar **BTN-R** para procesar el cambio.
-* **Las letras no coinciden con un simulador web:** Nuestra implementación usa tablas ROM simplificadas y aritmética modular propia, no es una réplica 1:1 de la Enigma M3 militar (sin *Steckerbrett*).
+* **Lenguaje:** VHDL-93
+* **IDE:** Xilinx Vivado 2023.x
+* **Hardware:** Digilent Basys 3 (Artix-7 XC7A35T)
+* **Simulación:** Vivado Logic Analyzer
+
+---
+
+## 👥 Créditos
+
+Este proyecto fue diseñado, codificado y documentado por estudiantes de **Ingeniería de Computadores**:
+
+<div align="center">
+
+| **Juan Pastrana García** | **Omar Ouahri Vigil** |
+| :---: | :---: |
+| Diseño Datapath & RTL | Lógica de Control & FSM |
+
+</div>
+
+---
+*© 2026 FPGA Enigma Project. Distribuido bajo licencia MIT.*
