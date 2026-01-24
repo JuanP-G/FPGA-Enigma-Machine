@@ -9,7 +9,7 @@
 
 <br>
 
-**Una reconstrucción digital de la criptografía electromecánica de la Segunda Guerra Mundial.** No es una simulación por software: es hardware dedicado configurado para emular rotores, reflectores y lógica de cifrado.
+**Una reconstrucción digital de la criptografía electromecánica de la Segunda Guerra Mundial.** Hardware dedicado configurado para emular rotores, reflectores y aritmética modular en tiempo real.
 
 [Explorar RTL](#arquitectura) • [Manual de Uso](#manual) • [Ver Autores](#creditos)
 
@@ -21,7 +21,7 @@
 
 ---
 
-## 📋 Resumen del Proyecto
+## <a name="resumen"></a>📋 Resumen del Proyecto
 
 Este proyecto implementa una **Máquina Enigma** funcional utilizando lógica digital pura. El sistema ha sido diseñado separando estrictamente la ruta de datos (Datapath) de la lógica de control (FSM), permitiendo un cifrado polialfabético en tiempo real.
 
@@ -35,7 +35,7 @@ Este proyecto implementa una **Máquina Enigma** funcional utilizando lógica di
 
 ## <a name="arquitectura"></a>🏗️ Arquitectura Hardware
 
-El diseño se ha sintetizado en una FPGA **Xilinx Artix-7** (Basys 3). A continuación se detallan los bloques críticos generados por Vivado.
+El diseño se ha sintetizado en una FPGA **Xilinx Artix-7** (Basys 3).
 
 ### 1. Jerarquía Top-Level
 Integra la Unidad de Control, el Datapath y los controladores de periféricos.
@@ -58,39 +58,47 @@ Sustituye el cableado físico de los rotores mediante sumas y restas de offsets.
 
 ## <a name="manual"></a>🎮 Manual de Operación
 
-### Mapa de Controles (Basys 3)
+A continuación se muestra el mapa de interfaz de la placa. **Es obligatorio realizar un RESET al encender la FPGA.**
 
-| Componente | Etiqueta | Función |
+> 📸 **Nota:** Esta guía visual corresponde a la configuración física en la placa Basys 3.
+
+<div align="center">
+    <img src="assets/manual_interface.png" alt="Mapa de Interfaz Física" width="90%">
+</div>
+
+### Tabla de Referencia Rápida
+
+| Componente | Función | Detalles |
 | :--- | :--- | :--- |
-| **SW [4:0]** | `Entrada` | Selección de letra en binario (**A**=`00000` ... **Z**=`11001`). |
-| **SW [14:13]** | `Rotor` | Configuración del patrón de cableado interno. |
-| **SW [15]** | `Modo` | ⬇️ **Cifrar** / ⬆️ **Descifrar**. |
-| **BTN Center** | `RESET` | **Obligatorio al inicio.** Reinicia rotores a `00`. |
-| **BTN Right** | `CIFRAR` | Ejecuta el ciclo de cifrado y avanza el mecanismo. |
+| **A. Displays** | Visualización | `[Rotores | Entrada | Salida]` |
+| **B. Botones** | Control | `Centro`: Reset Total / `Derecho`: Cifrar Letra |
+| **C. Switches [0-4]** | Entrada Datos | Selección de letra en binario (Ver tabla abajo). |
+| **D. Switches [13-14]** | Config. Rotores | Selección de rodillo/tabla interna. |
+| **E. Switch [15]** | Modo | ⬇️ Cifrar / ⬆️ Descifrar |
 
-### Guía Rápida de Uso
+<details>
+<summary><strong>🔻 Desplegar Tabla de Códigos Binarios (A-Z)</strong></summary>
+<br>
 
-1.  **Reset:** Pulsa el botón central. El display debe mostrar `00` en los dígitos de la izquierda.
-2.  **Configura:** Elige modo Cifrar (SW15 abajo) y selecciona una letra con los switches derechos.
-3.  **Ejecuta:** Pulsa el botón derecho.
-4.  **Resultado:**
-    * El **Dígito 0** (derecha) muestra la letra cifrada.
-    * Los **Dígitos 3-2** (izquierda) muestran cómo han girado los rotores.
+| Letra | Binario | Letra | Binario | Letra | Binario |
+| :---: | :---: | :---: | :---: | :---: | :---: |
+| **A** | 00000 | **J** | 01001 | **S** | 10010 |
+| **B** | 00001 | **K** | 01010 | **T** | 10011 |
+| **C** | 00010 | **L** | 01011 | **U** | 10100 |
+| **D** | 00011 | **M** | 01100 | **V** | 10101 |
+| **E** | 00100 | **N** | 01101 | **W** | 10110 |
+| **F** | 00101 | **O** | 01110 | **X** | 10111 |
+| **G** | 00110 | **P** | 01111 | **Y** | 11000 |
+| **H** | 00111 | **Q** | 10000 | **Z** | 11001 |
+| **I** | 01000 | **R** | 10001 | | |
 
----
-
-## 🛠️ Tecnologías Utilizadas
-
-* **Lenguaje:** VHDL-93
-* **IDE:** Xilinx Vivado 2023.x
-* **Hardware:** Digilent Basys 3 (Artix-7 XC7A35T)
-* **Simulación:** Vivado Logic Analyzer
+</details>
 
 ---
 
 ## <a name="creditos"></a>👥 Créditos
 
-Este proyecto fue diseñado, codificado y documentado por estudiantes de **Ingeniería de Computadores**:
+Proyecto desarrollado para la asignatura de **Ingeniería de Computadores**.
 
 <div align="center">
 
@@ -99,3 +107,6 @@ Este proyecto fue diseñado, codificado y documentado por estudiantes de **Ingen
 | Diseño Datapath & RTL | Lógica de Control & FSM |
 
 </div>
+
+---
+*© 2026 FPGA Enigma Project. Distribuido bajo licencia MIT.*
