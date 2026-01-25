@@ -9,48 +9,56 @@
 
 <br>
 
-**Una reconstrucción digital de la criptografía electromecánica de la Segunda Guerra Mundial.** Hardware dedicado configurado para emular rotores, reflectores y aritmética modular en tiempo real.
+**Rescatando la ingeniería de 1940 mediante lógica digital moderna.**
+Este proyecto no es una simple simulación; es una reconstrucción física de los rotores y circuitos de la Enigma, traducidos a puertas lógicas para operar en tiempo real.
 
 [Explorar RTL](#arquitectura) • [Manual de Uso](#manual) • [Ver Autores](#creditos)
 
 <img src="assets/concept_datapath.png" alt="Concepto Datapath" width="80%">
 <br>
-<em>Figura 1: Diseño conceptual original del flujo de datos (Datapath).</em>
+<em>Figura 1: Nuestro diseño conceptual del flujo de datos (Datapath).</em>
 
 </div>
 
 ---
 
-## <a name="resumen"></a>📋 Resumen del Proyecto
+## <a name="resumen"></a>📋 La Misión del Proyecto
 
-Este proyecto implementa una **Máquina Enigma** funcional utilizando lógica digital pura. El sistema ha sido diseñado separando estrictamente la ruta de datos (Datapath) de la lógica de control (FSM), permitiendo un cifrado polialfabético en tiempo real.
+El objetivo fue replicar la **Máquina Enigma** utilizando hardware reconfigurable. En lugar de escribir código que se ejecuta secuencialmente (como en C o Python), hemos diseñado un circuito digital que **existe físicamente** dentro de la FPGA.
 
-### Características Principales
-* ⚙️ **Mecánica Virtual:** Simulación del movimiento físico de los rotores (trinquete).
-* 🧮 **Aritmética Modular:** ALU dedicada para operaciones `MOD 26`.
-* 🛡️ **Fiabilidad:** Debouncing hardware de 50ms para pulsadores.
-* 📟 **Visualización:** Salida multiplexada en 7-segmentos.
+Separamos estrictamente el diseño en dos mundos: el **Datapath** (que transporta y transforma las letras) y la **Lógica de Control** (que decide cuándo y cómo ocurren las cosas).
+
+### ¿Qué lo hace especial?
+* ⚙️ **Mecánica Virtual:** Hemos recreado el "clic" físico de los rotores y el trinquete usando contadores y lógica de estado.
+* 🧮 **Aritmética Modular:** Implementamos aritmética modular (`MOD 26`) pura para calcular los cifrados sin procesador.
+* 🛡️ **Fiabilidad:** Incluye un sistema de *debouncing* de 50ms para que los botones de la placa se sientan firmes y precisos.
+* * 📟 **Visualización:** Salida multiplexada en 7-segmentos.
 
 ---
 
-## <a name="arquitectura"></a>🏗️ Arquitectura Hardware
+## <a name="arquitectura"></a>🏗️ Arquitectura del Sistema
 
-El diseño se ha sintetizado en una FPGA **Xilinx Artix-7** (Basys 3).
+Todo el diseño se ha sintetizado y probado en una placa **Basys 3 (Artix-7)**. Aquí explicamos cómo funciona la máquina:
 
 ### 1. Jerarquía Top-Level
-Integra la Unidad de Control, el Datapath y los controladores de periféricos.
+Es el módulo que conecta todo. Une nuestros periféricos (botones, switches) con la lógica interna, actuando como la placa base del sistema.
 <img src="assets/rtl_top.png" alt="RTL Top Level" width="100%">
 
 ### 2. Unidad de Control
-Una máquina de estados finitos (Moore) gestiona la secuencia de cifrado.
-* **Estados S2-S3:** Cálculo matemático de la letra.
-* **Estados S4-S6:** Lógica mecánica (decisión de giro de rotores).
+Aquí es donde reside la inteligencia. Esta Máquina de Estados Finitos (FSM) orquesta todo el proceso: detecta tu pulsación, espera a que la señal se estabilice y ordena a los rotores que giren.
 
-<img src="assets/rtl_fsm.png" alt="RTL FSM" width="100%">
+> *Como todo buen diseño, este nació en papel. Abajo mostramos el boceto original de los estados y su traducción final a hardware:*
 
-### 3. ALU Modular (El Corazón)
-Sustituye el cableado físico de los rotores mediante sumas y restas de offsets.
+<div align="center">
+  <img src="assets/fsm_sketch.png" alt="Boceto FSM" width="45%">
+  <img src="assets/rtl_fsm.png" alt="RTL FSM" width="53%">
+</div>
+
+### 3. ALU Modular
+Este módulo constituye el núcleo de ejecución del sistema. Su función principal es emular el complejo cableado físico de los rotores originales mediante el uso de aritmética modular, aplicando operaciones de suma y resta de offsets para transformar la señal de entrada.
 > `Salida = (Entrada + Offset_Rotor) mod 26`
+
+La implementación se basa en un diseño combinacional que garantiza que la sustitución de caracteres sea instantánea una vez que los registros de los rotores están estables.
 
 <img src="assets/rtl_alu.png" alt="RTL ALU" width="100%">
 
@@ -58,9 +66,9 @@ Sustituye el cableado físico de los rotores mediante sumas y restas de offsets.
 
 ## <a name="manual"></a>🎮 Manual de Operación
 
-A continuación se muestra el mapa de interfaz de la placa. **Es obligatorio realizar un RESET al encender la FPGA.**
+A continuación se muestra el mapa de interfaz de la placa. **Es recomendable realizar un RESET al encender la FPGA.**
 
-> 📸 **Nota:** Esta guía visual corresponde a la configuración física en la placa Basys 3.
+> 📸 **Nota:** Guía visual para la configuración física en la Basys 3.
 
 <div align="center">
     <img src="assets/manual_interface.png" alt="Mapa de Interfaz Física" width="90%">
@@ -96,14 +104,13 @@ A continuación se muestra el mapa de interfaz de la placa. **Es obligatorio rea
 
 ---
 
-## <a name="creditos"></a>👥 Créditos
+## <a name="contribuyentes"></a>👥 Colaboradores
 
-Proyecto desarrollado para la asignatura de **Ingeniería de Computadores**.
+Proyecto desarrollado para la asignatura de [**Tecnología de Computadores**](https://www.ucm.es/estudios/grado-ingenieriadecomputadores-plan-803217) de la [**UCM**](https://www.ucm.es/).
 
 <div align="center">
 
-| [**Juan Pastrana García**](https://github.com/GustoffotsuG) | [**Omar Ouahri Vigil**](https://github.com/theomaaroo) |
+| [<img src="https://github.com/GustoffotsuG.png" width="150px;"/><br /><sub><b>Juan Pastrana García</b></sub>](https://github.com/GustoffotsuG) | [<img src="https://github.com/theomaaroo.png" width="150px;"/><br /><sub><b>Omar Ouahri Vigil</b></sub>](https://github.com/theomaaroo) |
 | :---: | :---: |
-| Diseño Datapath & RTL | Lógica de Control & FSM |
 
 </div>
