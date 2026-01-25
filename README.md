@@ -55,7 +55,7 @@ Aquí es donde reside la inteligencia. Esta Máquina de Estados Finitos (FSM) or
 </div>
 
 ### 3. ALU Modular
-Este módulo constituye el núcleo de ejecución del sistema. Su función principal es emular el complejo cableado físico de los rotores originales mediante el uso de aritmética modular, aplicando operaciones de suma y resta de offsets para transformar la señal de entrada.
+Este módulo constituye el núcleo de ejecución del sistema. Su función principal es emular el cableado físico de los rotores originales mediante el uso de aritmética modular, aplicando operaciones de suma y resta de offsets para transformar la señal de entrada.
 > `Salida = (Entrada + Offset_Rotor) mod 26`
 
 La implementación se basa en un diseño combinacional que garantiza que la sustitución de caracteres sea instantánea una vez que los registros de los rotores están estables.
