@@ -41,7 +41,7 @@ El diseño se ha sintetizado en una FPGA **Xilinx Artix-7** (Basys 3).
 Integra la Unidad de Control, el Datapath y los controladores de periféricos.
 <img src="assets/rtl_top.png" alt="RTL Top Level" width="100%">
 
-### 2. Unidad de Control (El Cerebro)
+### 2. Unidad de Control
 Una máquina de estados finitos (Moore) gestiona la secuencia de cifrado.
 * **Estados S2-S3:** Cálculo matemático de la letra.
 * **Estados S4-S6:** Lógica mecánica (decisión de giro de rotores).
