@@ -107,6 +107,7 @@ A continuación se muestra el mapa de interfaz de la placa. **Es recomendable re
 ## <a name="contribuyentes"></a>👥 Colaboradores
 
 Proyecto desarrollado para la asignatura de [**Tecnología de Computadores**](https://www.ucm.es/estudios/grado-ingenieriadecomputadores-plan-803217) de la [**UCM**](https://www.ucm.es/).
+Curso 2025-26
 
 <div align="center">
 
