@@ -111,7 +111,7 @@ Curso 2025-26
 
 <div align="center">
 
-| [<img src="https://github.com/GustoffotsuG.png" width="150px;"/><br /><sub><b>Juan Pastrana García</b></sub>](https://github.com/GustoffotsuG) | [<img src="https://github.com/theomaaroo.png" width="150px;"/><br /><sub><b>Omar Ouahri Vigil</b></sub>](https://github.com/theomaaroo) |
+| [<img src="https://github.com/JuanP-G.png" width="150px;"/><br /><sub><b>Juan Pastrana García</b></sub>](https://github.com/GustoffotsuG) | [<img src="https://github.com/theomaaroo.png" width="150px;"/><br /><sub><b>Omar Ouahri Vigil</b></sub>](https://github.com/theomaaroo) |
 | :---: | :---: |
 
 </div>
